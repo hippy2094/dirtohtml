@@ -50,5 +50,6 @@
   $fileTypes['gz'] = "tgz";
   $fileTypes['bz2'] = "zip";
   $fileTypes['7z'] = "zip";
+  $fileTypes['dmg'] = "cdimage";
   $fileTypes['exe'] = "exec_wine";
 ?>

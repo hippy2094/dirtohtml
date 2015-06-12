@@ -1,13 +1,16 @@
 <?php
-  /* Dynamic Directory To HTML script v0.2
+  /* Dynamic Directory To HTML script v0.3
      By Matthew Hipkin, visit http://www.matthewhipkin.co.uk for more information
 
      CHECK .dirtohtml/config.inc.php FILE FOR CONFIGURATION OPTIONS */
 
   /* VERSION HISTORY
 
-     2012-05-16 - 0.2 - Modified title tag to use $_SERVER['HTTP_HOST'] 
-     2009-05-28 - 0.1 - First version  */
+     2015-06-12 - 0.3 - Added column sort
+                      - Set units on filesize
+     2012-05-16 - 0.2 - Modified title tag to use $_SERVER['HTTP_HOST']
+     2009-05-28 - 0.1 - First version
+  */
 
   include(".dirtohtml/config.inc.php");
   include(".dirtohtml/funcs.inc.php");

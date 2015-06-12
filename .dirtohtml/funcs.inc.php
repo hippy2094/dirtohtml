@@ -6,15 +6,27 @@
     while(($file = readdir($dp)) !== false) {
       if((is_file($file)) && (substr($file,0,1) != ".") && ($file != basename($_SERVER['PHP_SELF']))) {
         $files[$c]['name'] = $file;
-        $files[$c]['size'] = filesize($file);
+
+        if(round((filesize($file) / 1024) / 1024,2) < 1) {
+          $files[$c]['size'] = round(filesize($file) / 1024,2);
+          $files[$c]['size'] .= "Kb";
+        }
+        else {
+          $files[$c]['size'] = round((filesize($file) / 1024) / 1024,2);
+          $files[$c]['size'] .= "Mb";
+        }
+
         $files[$c]['date'] = filectime($file);
         $c++;
       }
     }
     // TODO: Sorting
+    if($order == "filename") {
+      usort($files, "sort_filename");
+    }
     return $files;
   }
-  
+
   function getFileType($file,$imgpath) {
     global $fileTypes;
     $f = strtolower($file);
@@ -35,5 +47,9 @@
       else $i = "$imgpath/$ext.png";
     }
     return $i;
+  }
+
+  function sort_filename($a,$b) {
+    return $a['name']>$b['name'];
   }
 ?>
